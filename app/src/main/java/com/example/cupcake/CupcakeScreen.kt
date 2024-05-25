@@ -101,7 +101,7 @@ fun CupcakeApp(
         topBar = {
             CupcakeAppBar(
                 currentScreen = currentScreen,
-                canNavigateBack = false,
+                canNavigateBack = navController.previousBackStackEntry != null,
                 navigateUp = { /* TODO: implement back navigation */ }
             )
         }
