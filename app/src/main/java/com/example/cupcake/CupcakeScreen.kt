@@ -64,15 +64,13 @@ enum class CupcakeScreen(@StringRes val title: Int) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CupcakeAppBar(
+    currentScreen: CupcakeScreen,
     canNavigateBack: Boolean,
-    navigateUp: () -> Unit,
+    navigateUp: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text(stringResource(id = R.string.app_name)) },
-        colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
-        ),
+        title = { Text(stringResource(currentScreen.title)) },
         modifier = modifier,
         navigationIcon = {
             if (canNavigateBack) {
