@@ -111,6 +111,7 @@ fun CupcakeApp(
                     quantityOptions = DataSource.quantityOptions,
                     onNextButtonClicked = {
                         viewModel.setQuantity(it)
+                        navController.navigate(CupcakeScreen.Flavor.name)
                     }
                 )
 
