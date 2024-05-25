@@ -93,9 +93,14 @@ fun CupcakeApp(
     navController: NavHostController = rememberNavController()
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentScreen = CupcakeScreen.valueOf(
+        backStackEntry?.destination?.route ?: CupcakeScreen.Start.name
+    )
+
     Scaffold(
         topBar = {
             CupcakeAppBar(
+                currentScreen = currentScreen,
                 canNavigateBack = false,
                 navigateUp = { /* TODO: implement back navigation */ }
             )
